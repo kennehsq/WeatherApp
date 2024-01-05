@@ -3,6 +3,7 @@ package com.example.dvtweather
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.PaddingValues
@@ -53,6 +54,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private var pressedTime: Long = 0L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -116,24 +118,7 @@ class MainActivity : ComponentActivity() {
                         drawerState.open()
                     }
                 }
-                /*Scaffold(
-                    modifier = Modifier,
-                    topBar = {
-                        AppBar(
-                            onNavigationIconClick = {
-                                scope.launch {
-                                    drawerState.open()
-                                }
-                            },
-                            itemTitle = "Weather App",
-                            icon = Icons.Default.Menu,
-                            color = colorResource( id = R.color.cloudy)
-                        )
-                    },
-                    content = { paddingValues ->
-                        SetUpUIContent(paddingValues, viewModel, navController)
-                    }
-                )*/
+
             }
         }
     }
@@ -146,11 +131,20 @@ class MainActivity : ComponentActivity() {
     ) {
         WeatherNavigationGraph(
             viewModel = viewModel,
-            navController = navController,
-            {
-                drawerInvoked.invoke()
-            }
-        )
+            navController = navController
+        ) {
+            drawerInvoked.invoke()
+        }
+    }
+
+    override fun onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+            finish()
+        } else {
+            Toast.makeText(baseContext,"Press back again to exit",Toast.LENGTH_SHORT).show()
+        }
+        pressedTime = System.currentTimeMillis()
     }
 
 }

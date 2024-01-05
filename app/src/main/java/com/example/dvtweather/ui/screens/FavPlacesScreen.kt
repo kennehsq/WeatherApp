@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
@@ -28,7 +29,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.res.ResourcesCompat.getColor
 import androidx.navigation.NavController
 import com.example.dvtweather.R
 import com.example.dvtweather.WeatherViewModel
@@ -51,12 +51,18 @@ fun FavPlacesScreen(
     ) {
         Scaffold(
             modifier = Modifier,
+            snackbarHost = {
+                SnackbarHost(
+                    hostState = snackbarHostState,
+                    modifier = Modifier.padding(16.dp)
+                )
+            },
             topBar = {
                 AppBar(
                     onNavigationIconClick = {
                         drawerInvoker.invoke()
                     },
-                    itemTitle = "Weather App",
+                    itemTitle = "Favorite Placess",
                     icon = Icons.Default.Menu,
                     color = Color.Transparent
                 )
@@ -69,7 +75,7 @@ fun FavPlacesScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(top = 16.dp)
+                            .padding(top = 16.dp,start = 24.dp, end = 24.dp)
                             .wrapContentHeight(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically

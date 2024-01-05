@@ -78,7 +78,8 @@ fun AppBar(
                 value = itemTitle,
                 textSize = 18.sp,
                 textAlign = TextAlign.Start,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.SemiBold,
+                color = Color.Black
             )
         },
         navigationIcon = {
@@ -86,7 +87,7 @@ fun AppBar(
                 Icon(
                     imageVector = icon,
                     contentDescription = "Return to home page",
-                    tint = Color.White
+                    tint = Color.Black
                 )
             }
         }
