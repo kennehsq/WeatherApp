@@ -1,6 +1,5 @@
 package com.example.dvtweather.ui.screens
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost

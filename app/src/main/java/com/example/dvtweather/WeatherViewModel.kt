@@ -2,20 +2,16 @@ package com.example.dvtweather
 
 import android.util.Log
 import androidx.compose.runtime.mutableDoubleStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dvtweather.data.api.dto.WeatherDTO
 import com.example.dvtweather.data.api.dto.WeatherForecatsDTO
 import com.example.dvtweather.data.domain.repositories.WeatherRepository
-import com.example.dvtweather.ui.data.MainWeatherItem
 import com.example.dvtweather.util.AppConstants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel

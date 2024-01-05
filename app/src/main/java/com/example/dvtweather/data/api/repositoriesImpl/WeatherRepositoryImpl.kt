@@ -5,7 +5,6 @@ import com.example.dvtweather.data.api.dto.WeatherDTO
 import com.example.dvtweather.data.api.dto.WeatherForecatsDTO
 import com.example.dvtweather.data.api.remote.WeatherAPI
 import com.example.dvtweather.data.domain.repositories.WeatherRepository
-import retrofit2.Response
 import javax.inject.Inject
 
 class WeatherRepositoryImpl @Inject constructor(private val api: WeatherAPI): WeatherRepository {
